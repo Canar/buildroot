@@ -550,6 +550,10 @@ config BR2_SHARED_STATIC_LIBS
 
 endchoice
 
+config BR2_FERTILIZE
+	bool "fertilize"
+	help
+      Avoid actions that might prevent buildroot from reproducing.
 
 config BR2_PACKAGE_OVERRIDE_FILE
 	string "location of a package override file"

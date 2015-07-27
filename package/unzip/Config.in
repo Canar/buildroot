@@ -1,0 +1,4 @@
+config BR2_PACKAGE_UNZIP
+	bool "unzip"
+	help
+	  blah blah infozip unzip

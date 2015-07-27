@@ -54,6 +54,7 @@ endif
 	source "package/lz4/Config.in"
 	source "package/lzip/Config.in"
 	source "package/lzop/Config.in"
+	source "package/unzip/Config.in"
 	source "package/xz/Config.in"
 endmenu
 
@@ -121,6 +122,7 @@ endif
 if BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
 	source "package/gawk/Config.in"
 endif
+	source "package/gcc/Config.in"
 	source "package/gettext/Config.in"
 	source "package/git/Config.in"
 	source "package/gperf/Config.in"
