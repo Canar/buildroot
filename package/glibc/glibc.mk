@@ -106,6 +106,7 @@ endef
 # to install the libraries, and nothing more.
 #
 
+ifneq ($(BR2_FERTILIZE),y)
 GLIBC_LIBS_LIB = \
 	ld*.so.* libc.so.* libcrypt.so.* libdl.so.* libgcc_s.so.* libm.so.*        \
 	libnsl.so.* libpthread.so.* libresolv.so.* librt.so.* libutil.so.*   \
@@ -120,5 +121,6 @@ define GLIBC_INSTALL_TARGET_CMDS
 		$(call copy_toolchain_lib_root,$(STAGING_DIR)/,,lib,$$libs,/lib) ; \
 	done
 endef
+endif
 
 $(eval $(autotools-package))

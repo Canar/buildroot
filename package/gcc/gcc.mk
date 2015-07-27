@@ -72,6 +72,7 @@ HOST_GCC_COMMON_DEPENDENCIES = \
 	host-gmp \
 	host-mpfr \
 	$(if $(BR2_BINFMT_FLAT),host-elf2flt)
+GCC_TARG_DEPENDENCIES = $(subst host-,,$(HOST_GCC_COMMON_DEPENDENCIES))
 GCC_COMMON_CONF_OPTS += \
 	--target=$(GNU_TARGET_NAME) \
 	--disable-__cxa_atexit \

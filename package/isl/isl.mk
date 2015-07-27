@@ -17,5 +17,7 @@ ISL_DEPENDENCIES = gmp
 # Our libtool patch doesn't apply, and since this package is only
 # built for the host, we don't really care about it.
 ISL_LIBTOOL_PATCH = NO
+ISL_INSTALL_STAGING = YES
 
+$(eval $(autotools-package))
 $(eval $(host-autotools-package))
