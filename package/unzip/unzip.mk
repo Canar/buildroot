@@ -5,7 +5,7 @@
 ################################################################################
 
 UNZIP_VERSION = 6.0
-UNZIP_SOURCE = unzip$(subst .,,INFOZIP_VERSION).tgz
+UNZIP_SOURCE = unzip$(subst .,,$(UNZIP_VERSION)).tgz
 UNZIP_SITE = ftp://ftp.info-zip.org/pub/infozip/src
 UNZIP_LICENSE = Info-ZIP
 UNZIP_LICENSE_FILES = LICENSE
@@ -30,7 +30,7 @@ endef
 define UNZIP_BUILD_CMDS
 	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D) \
 		CFLAGS="$(UNZIP_TARGET_CFLAGS) $(UNZIP_CFLAGS)" \
-		$(shell cat flags) \
+		$(shell cat $(@D)/flags) \
 		-f unix/Makefile gcc
 endef
 
