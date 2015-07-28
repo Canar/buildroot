@@ -1,0 +1,5 @@
+config BR2_GCC_ENABLE_IN_TARGET
+	bool "gcc"
+	select BR2_GCC_NEEDS_MPC
+	help
+	  GNU compiler collection.
