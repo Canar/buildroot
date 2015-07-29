@@ -124,7 +124,7 @@ if BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
 endif
 	source "package/gettext/Config.in"
 	source "package/git/Config.in"
-	source "package/gnu-c/Config.in"
+	source "package/gnucc/Config.in"
 	source "package/gperf/Config.in"
 if BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
 	source "package/grep/Config.in"

@@ -12,6 +12,8 @@ CLOOG_DEPENDENCIES = gmp isl
 # built for the host, we don't really care about it.
 CLOOG_LIBTOOL_PATCH = NO
 
+CLOOG_CONF_OPTS = --with-isl=/usr --with-polylib=no
 HOST_CLOOG_CONF_OPTS = --with-isl=system --with-polylib=no
 
+$(eval $(autotools-package))
 $(eval $(host-autotools-package))
