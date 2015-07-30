@@ -44,11 +44,11 @@ endef
 
 define LINUX_HEADERS_INSTALL_TARGET_CMDS
 	(cd $(@D); \
-		$(TARGET_MAKE_ENV) $(MAKE) \
+		$(MAKE) \
 			ARCH=$(KERNEL_ARCH) \
-			HOSTCC="$(TARGET_CC)" \
-			HOSTCFLAGS="$(TARGET_CFLAGS)" \
-			HOSTCXX="$(TARGET_CXX)" \
+			HOSTCC="$(HOSTCC)" \
+			HOSTCFLAGS="$(HOSTCFLAGS)" \
+			HOSTCXX="$(HOSTCXX)" \
 			INSTALL_HDR_PATH=$(TARGET_DIR)/usr \
 			headers_install)
 endef
