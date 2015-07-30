@@ -42,6 +42,17 @@ define LINUX_HEADERS_CONFIGURE_CMDS
 			headers_install)
 endef
 
+define LINUX_HEADERS_INSTALL_TARGET_CMDS
+	(cd $(@D); \
+		$(TARGET_MAKE_ENV) $(MAKE) \
+			ARCH=$(KERNEL_ARCH) \
+			HOSTCC="$(TARGET_CC)" \
+			HOSTCFLAGS="$(TARGET_CFLAGS)" \
+			HOSTCXX="$(TARGET_CXX)" \
+			INSTALL_HDR_PATH=$(TARGET_DIR)/usr \
+			headers_install)
+endef
+
 define LINUX_HEADERS_INSTALL_STAGING_CMDS
 	(cd $(@D); \
 		$(TARGET_MAKE_ENV) $(MAKE) \

@@ -580,6 +580,8 @@ ifneq ($(BR2_FERTILIZE),y)
 	rm -rf $(TARGET_DIR)/usr/doc $(TARGET_DIR)/usr/share/doc
 	rm -rf $(TARGET_DIR)/usr/share/gtk-doc
 	-rmdir $(TARGET_DIR)/usr/share 2>/dev/null
+else
+	cp -r $(STAGING_DIR)/usr/include/linux $(TARGET_DIR)/usr/include
 endif
 	$(STRIP_FIND_CMD) | xargs -0 $(STRIPCMD) 2>/dev/null || true
 	if test -d $(TARGET_DIR)/lib/modules; then \

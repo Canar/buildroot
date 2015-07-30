@@ -6,6 +6,9 @@
 GNUCC_VERSION = $(call qstrip,$(BR2_GCC_VERSION))
 GNUCC_SITE = $(BR2_GNU_MIRROR:/=)/gcc/gcc-$(GNUCC_VERSION)
 GNUCC_SOURCE ?= gcc-$(GNUCC_VERSION).tar.bz2
+GNUCC_LICENSE = GPLv2
+GNUCC_LICENSE_FILES = COPYING
+
 define GNUCC_APPLY_PATCHES_NO
 	if test -d package/gcc/$(GNUCC_VERSION); then \
 	  $(APPLY_PATCHES) $(@D) package/gcc/$(GNUCC_VERSION) \*.patch ; \
