@@ -15,9 +15,7 @@ NCURSES_LICENSE_FILES = README
 NCURSES_CONFIG_SCRIPTS = ncurses$(NCURSES_LIB_SUFFIX)$(NCURSES_ABI_VERSION)-config
 
 NCURSES_CONF_OPTS = \
-	--without-cxx \
-	--without-cxx-binding \
-	--without-ada \
+	$(if $(BR2_PACKAGE_NCURSES_TARGET_PROGS),,--without-progs) \
 	--without-tests \
 	--disable-big-core \
 	--without-profile \
@@ -27,8 +25,15 @@ NCURSES_CONF_OPTS = \
 	--enable-const \
 	--enable-overwrite \
 	--enable-pc-files \
-	$(if $(BR2_PACKAGE_NCURSES_TARGET_PROGS),,--without-progs) \
-	--without-manpages
+	--without-ada
+
+ifndef ($(BR2_FERTILIZE),y)
+NCURSES_CONF_OPTS += \
+	--without-manpages \
+	--without-cxx \
+	--without-cxx-binding \
+else
+endif
 
 # Install after busybox for the full-blown versions
 ifeq ($(BR2_PACKAGE_BUSYBOX),y)
@@ -139,6 +144,12 @@ define NCURSES_INSTALL_TARGET_PROGS
 endef
 endif
 
+
+ifeq ($(BR2_FERTILIZE),y)
+define NCURSES_INSTALL_TARGET_CMDS
+	$(MAKE) -C $(@D) DESTDIR=$(TARGET_DIR) install
+endef
+else
 define NCURSES_INSTALL_TARGET_CMDS
 	mkdir -p $(TARGET_DIR)/usr/lib
 	$(NCURSES_INSTALL_TARGET_LIBS)
@@ -162,7 +173,7 @@ define NCURSES_INSTALL_TARGET_CMDS
 	mkdir -p $(TARGET_DIR)/usr/share/terminfo/s
 	cp -dpf $(STAGING_DIR)/usr/share/terminfo/s/screen $(TARGET_DIR)/usr/share/terminfo/s
 endef # NCURSES_INSTALL_TARGET_CMDS
-
+endif
 #
 # On systems with an older version of tic, the installation of ncurses hangs
 # forever. To resolve the problem, build a static version of tic on host

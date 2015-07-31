@@ -80,7 +80,7 @@ define GLIBC_CONFIGURE_CMDS
 		$(TARGET_CONFIGURE_OPTS) \
 		CFLAGS="-O2 $(GLIBC_EXTRA_CFLAGS)" CPPFLAGS="" \
 		CXXFLAGS="-O2 $(GLIBC_EXTRA_CFLAGS)" \
-		$(SHELL) $(@D)/$(GLIBC_SRC_SUBDIR)/configure \
+		/bin/bash $(@D)/$(GLIBC_SRC_SUBDIR)/configure \
 		ac_cv_path_BASH_SHELL=/bin/bash \
 		libc_cv_forced_unwind=yes \
 		libc_cv_ssp=no \
@@ -100,6 +100,7 @@ define GLIBC_CONFIGURE_CMDS
 	$(GLIBC_ADD_MISSING_STUB_H)
 endef
 
+#$(SHELL) $(@D)/$(GLIBC_SRC_SUBDIR)/configure \
 
 #
 # We also override the install to target commands since we only want

@@ -1,5 +1,0 @@
-config BR2_GCC_ENABLE_IN_TARGET
-	bool "gcc"
-	default n
-	help
-	  GNU compiler collection.
