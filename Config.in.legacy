@@ -1057,14 +1057,6 @@ config BR2_PACKAGE_XSTROKE
 	  The 'xstroke' package has been removed since it has been
 	  deprecated for more than four buildroot releases.
 
-config BR2_PACKAGE_LZMA
-	bool "lzma target package has been removed"
-	select BR2_LEGACY
-	help
-	  The 'lzma' target package has been removed since it has been
-	  deprecated for more than four buildroot releases.
-	  Note: generating lzma-compressed rootfs images is still supported.
-
 config BR2_PACKAGE_TTCP
 	bool "ttcp has been removed"
 	select BR2_LEGACY

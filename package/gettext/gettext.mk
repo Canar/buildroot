@@ -38,7 +38,7 @@ HOST_GETTEXT_CONF_OPTS = \
 
 # For the target version, we only need the runtime, and for the host
 # version, we only need the tools.
-GETTEXT_SUBDIR = gettext-runtime
+# GETTEXT_SUBDIR = gettext-runtime
 HOST_GETTEXT_SUBDIR = gettext-tools
 
 # Disable the build of documentation and examples of gettext-tools,

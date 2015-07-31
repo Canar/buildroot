@@ -53,7 +53,7 @@ GNUCC_POST_EXTRACT_HOOKS += GNUCC_XTENSA_OVERLAY_EXTRACT
 endif
 
 # languages supported
-GNUCC_CROSS_LANGUAGES = c
+GNUCC_CROSS_LANGUAGES = c lto
 ifneq ($(BR2_INSTALL_LIBSTDCPP),)
 GNUCC_CROSS_LANGUAGES += c++
 endif
@@ -64,11 +64,10 @@ endif
 GNUCC_CONF_OPTS = \
 	--target=$(GNU_TARGET_NAME) \
 	--disable-__cxa_atexit \
-	--with-gnu-ld \
 	--disable-libssp \
 	--disable-multilib \
 	--with-gmp=$(TARGET_DIR)/usr \
-	--with-mpfr=$(TARGET_DIR)/usr \
+	--with-mpfr=$(TARGET_DIR)/usr
 
 # libsanitizer requires wordexp, not in default uClibc config. Also
 # doesn't build properly with musl.
@@ -170,7 +169,7 @@ endif
 
 
 GNUCC_CONF_OPTS += \
-	--enable-languages=$(GNUCC_CROSS_LANGUAGES) \
+	--enable-languages=$(subst $(space),$(comma),$(GNUCC_CROSS_LANGUAGES)) \
 	--enable-poison-system-directories
 
 # Disable shared libs like libstdc++ if we do static since it confuses linking
