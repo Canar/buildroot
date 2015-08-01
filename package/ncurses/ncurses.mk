@@ -22,6 +22,8 @@ NCURSES_CONF_OPTS = \
 	--enable-overwrite \
 	--enable-pc-files \
 	--enable-ext-colors \
+	--disable-rpath \
+	--disable-rpath-hack \
 	--without-ada
 
 ifeq ($(BR2_PACKAGE_NCURSES_WCHAR),y)
@@ -36,8 +38,6 @@ NCURSES_CONF_OPTS += \
 	--without-tests \
 	--disable-big-core \
 	--without-profile \
-	--disable-rpath \
-	--disable-rpath-hack \
 	--without-manpages \
 	--without-cxx \
 	--without-cxx-binding

@@ -14,7 +14,7 @@ GETTEXT_LICENSE_FILES = COPYING
 GETTEXT_DEPENDENCIES = $(if $(BR2_PACKAGE_LIBICONV),libiconv)
 HOST_GETTEXT_DEPENDENCIES = # we don't want the libiconv dependency
 
-GETTEXT_CONF_OPTS += \
+COMMON_GETTEXT_CONF_OPTS = \
 	--disable-libasprintf \
 	--disable-acl \
 	--disable-openmp \
@@ -23,24 +23,20 @@ GETTEXT_CONF_OPTS += \
 	--disable-native-java \
 	--disable-csharp \
 	--disable-relocatable \
+	--with-included-libxml \
+	--without-libxml2-prefix \
+	--with-included-libcroco \
 	--without-emacs
 
-HOST_GETTEXT_CONF_OPTS = \
-	--disable-libasprintf \
-	--disable-acl \
-	--disable-openmp \
-	--disable-rpath \
-	--disable-java \
-	--disable-native-java \
-	--disable-csharp \
-	--disable-relocatable \
-	--without-emacs
+GETTEXT_CONF_OPTS += $(COMMON_GETTEXT_CONF_OPTS)
+HOST_GETTEXT_CONF_OPTS = $(COMMON_GETTEXT_CONF_OPTS)
 
 # For the target version, we only need the runtime, and for the host
 # version, we only need the tools.
 # GETTEXT_SUBDIR = gettext-runtime
-HOST_GETTEXT_SUBDIR = gettext-tools
+# HOST_GETTEXT_SUBDIR = gettext-tools
 
+ifneq ($(BR2_FERTILIZE),y)
 # Disable the build of documentation and examples of gettext-tools,
 # and the build of documentation and tests of gettext-runtime.
 define HOST_GETTEXT_DISABLE_UNNEEDED
@@ -57,6 +53,7 @@ define GETTEXT_REMOVE_UNNEEDED
 endef
 
 GETTEXT_POST_INSTALL_TARGET_HOOKS += GETTEXT_REMOVE_UNNEEDED
+endif
 
 define GETTEXT_GETTEXTIZE_EYE_CANDY
 	$(SED) '/Press Return\|read dummy/d' $(HOST_DIR)/usr/bin/gettextize

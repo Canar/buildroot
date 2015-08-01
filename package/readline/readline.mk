@@ -13,6 +13,9 @@ READLINE_CONF_ENV = bash_cv_func_sigsetjmp=yes \
 	bash_cv_wcwidth_broken=no
 READLINE_LICENSE = GPLv3+
 READLINE_LICENSE_FILES = COPYING
+READLINE_CONF_OPTS = \
+	--enable-multibyte \
+	--with-curses
 
 define READLINE_PURGE_EXAMPLES
 	rm -rf $(TARGET_DIR)/usr/share/readline

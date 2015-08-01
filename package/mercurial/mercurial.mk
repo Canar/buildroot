@@ -5,10 +5,10 @@
 ################################################################################
 MERCURIAL_VERSION = 3.4
 MERCURIAL_SOURCE = mercurial-$(MERCURIAL_VERSION).tar.gz
-MERCURIAL_SITE = https://mercurial.selenic.com/release
+MERCURIAL_SITE = http://mercurial.selenic.com/release
 MERCURIAL_LICENSE = GPLv2
 MERCURIAL_LICENSE_FILES = COPYING
-MERCURIAL_DEPENDENCIES = python bzip2
+MERCURIAL_DEPENDENCIES = python bzip2 
 MERCURIAL_SETUP_TYPE = distutils
 define MERCURIAL_BUILD_CMDS
 	cd $(@D) &&\

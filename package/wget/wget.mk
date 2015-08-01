@@ -39,4 +39,5 @@ WGET_CONF_OPTS += --without-ssl
 endif
 endif
 
+$(eval $(host-autotools-package))
 $(eval $(autotools-package))

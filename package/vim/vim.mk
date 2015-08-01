@@ -24,7 +24,7 @@ VIM_CONF_ENV = \
 	ac_cv_sizeof_int=4 \
 	ac_cv_small_wchar_t=no
 # GUI/X11 headers leak from the host so forcibly disable them
-VIM_CONF_OPTS = --with-tlib=ncurses --enable-gui=no --without-x
+VIM_CONF_OPTS = --with-tlib=ncursesw --enable-gui=no --without-x
 VIM_LICENSE = Charityware
 VIM_LICENSE_FILES = README.txt
 
