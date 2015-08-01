@@ -24,7 +24,11 @@ VIM_CONF_ENV = \
 	ac_cv_sizeof_int=4 \
 	ac_cv_small_wchar_t=no
 # GUI/X11 headers leak from the host so forcibly disable them
-VIM_CONF_OPTS = --with-tlib=ncursesw --enable-gui=no --without-x
+VIM_CONF_OPTS = \
+	--with-tlib=ncursesw \
+	--enable-gui=no \
+	--without-x \
+	--without-local-dir
 VIM_LICENSE = Charityware
 VIM_LICENSE_FILES = README.txt
 
@@ -48,6 +52,11 @@ define VIM_INSTALL_RUNTIME_CMDS
 		$(MAKE) DESTDIR=$(TARGET_DIR) installmacros
 endef
 
+define VIM_INSTALL_FULL_CMDS
+	cd $(@D)/src; \
+		$(MAKE) DESTDIR=$(TARGET_DIR) install
+endef
+
 define VIM_REMOVE_DOCS
 	find $(TARGET_DIR)/usr/share/vim -type f -name "*.txt" -delete
 endef
@@ -56,11 +65,23 @@ endef
 define VIM_INSTALL_VI_SYMLINK
 	ln -sf /usr/bin/vim $(TARGET_DIR)/bin/vi
 endef
+
 VIM_POST_INSTALL_TARGET_HOOKS += VIM_INSTALL_VI_SYMLINK
 
+ifneq ($(BR2_FERTILIZE),y)
 ifeq ($(BR2_PACKAGE_VIM_RUNTIME),y)
 VIM_POST_INSTALL_TARGET_HOOKS += VIM_INSTALL_RUNTIME_CMDS
 VIM_POST_INSTALL_TARGET_HOOKS += VIM_REMOVE_DOCS
+endif
+else
+VIM_POST_INSTALL_TARGET_HOOKS += VIM_INSTALL_FULL_CMDS
+VIM_CONF_ENV += \
+	VIMRCLOC=/etc
+VIM_CONF_OPTS += \
+	--with-features=big \
+	--enable-multibyte \
+	--disable-nls \
+	--disable-netbeans
 endif
 
 $(eval $(autotools-package))
