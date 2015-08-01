@@ -1,0 +1,11 @@
+--- configure.ac.curses	2015-08-01 12:52:43.044906776 -0700
++++ configure.ac	2015-08-01 12:52:14.915254889 -0700
+@@ -362,7 +362,7 @@
+ if test "$with_readline" = yes; then
+ 	OLD_LIBS="$LIBS"
+ 	LIBS=""
+-	AC_SEARCH_LIBS([tgetent], [tinfo ncurses curses termcap termlib],
++	AC_SEARCH_LIBS([tgetent], [tinfo ncursesw curses termcap termlib],
+ 		[PARTED_LIBS="$PARTED_LIBS $LIBS"],
+ 		[AC_MSG_ERROR(dnl
+ [termcap could not be found which is required for the
