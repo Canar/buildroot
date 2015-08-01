@@ -13,6 +13,7 @@ NCURSES_PROGS = clear infocmp tabs tic toe tput tset
 NCURSES_MAKE = $(MAKE1)
 NCURSES_LICENSE = MIT with advertising clause
 NCURSES_LICENSE_FILES = README
+NCURSES_ABI_VERSION = 6
 NCURSES_CONFIG_SCRIPTS = ncurses$(NCURSES_LIB_SUFFIX)$(NCURSES_ABI_VERSION)-config
 
 NCURSES_CONF_OPTS = \
@@ -30,6 +31,7 @@ ifeq ($(BR2_PACKAGE_NCURSES_WCHAR),y)
 NCURSES_CONF_OPTS += \
 	--enable-widec \
 	--enable-ext-colors
+NCURSES_LIB_SUFFIX = w
 endif
 
 #         BR2_FERTILIZE=y
