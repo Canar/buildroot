@@ -2,3 +2,5 @@ config BR2_PACKAGE_MERCURIAL
 	bool "mercurial"
 	depends on BR2_PACKAGE_PYTHON
 	depends on BR2_PACKAGE_PYTHON_BZIP2
+	depends on BR2_PACKAGE_PYTHON_HASHLIB
+	depends on BR2_PACKAGE_PYTHON_ZLIB
