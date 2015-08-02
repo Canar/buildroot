@@ -31,7 +31,7 @@ This fork is a modest attempt at teaching Buildroot to build itself. In order to
 
 The only reason this is going up now is because I'm nervous that I might fat-finger the codebase like I've done once already. It's wildly untested, and doesn't accomplish much other than run to completion.
 
-Nevertheless, it is what it is.
+The thing is, it runs to completion inside the image that it created before. As of release date, I'm about seven generations deep. I've done no analysis so I'm not sure if I'm losing information or anything... More to come.
 
 Packages added: 
 * mercurial
