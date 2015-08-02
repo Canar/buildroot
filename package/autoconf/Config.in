@@ -1,0 +1,4 @@
+config BR2_PACKAGE_AUTOCONF
+	bool "autoconf"
+	select BR2_PACKAGE_M4
+	select BR2_PACKAGE_LIBTOOL

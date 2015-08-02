@@ -54,6 +54,7 @@ endif
 	source "package/lz4/Config.in"
 	source "package/lzip/Config.in"
 	source "package/lzop/Config.in"
+	source "package/unzip/Config.in"
 	source "package/xz/Config.in"
 endmenu
 
@@ -107,7 +108,6 @@ endif
 endmenu
 
 menu "Development tools"
-	source "package/binutils/Config.in"
 	source "package/bsdiff/Config.in"
 	source "package/bustle/Config.in"
 	source "package/cmake/Config.in"
@@ -117,11 +117,9 @@ if BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
 	source "package/diffutils/Config.in"
 	source "package/findutils/Config.in"
 endif
-	source "package/flex/Config.in"
 if BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
 	source "package/gawk/Config.in"
 endif
-	source "package/gettext/Config.in"
 	source "package/git/Config.in"
 	source "package/gperf/Config.in"
 if BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
@@ -129,8 +127,6 @@ if BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
 endif
 	source "package/intltool/Config.in"
 	source "package/jq/Config.in"
-	source "package/libtool/Config.in"
-	source "package/make/Config.in"
 if BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
 	source "package/patch/Config.in"
 endif
@@ -145,6 +141,19 @@ if BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
 endif
 	source "package/tree/Config.in"
 	source "package/yasm/Config.in"
+
+comment "Required for replication"
+	source "package/binutils/Config.in"
+	source "package/automake/Config.in"
+	source "package/autoconf/Config.in"
+	source "package/bison/Config.in"
+	source "package/flex/Config.in"
+	source "package/gettext/Config.in"
+	source "package/gnucc/Config.in"
+	source "package/libtool/Config.in"
+	source "package/m4/Config.in"
+	source "package/make/Config.in"
+	source "package/mercurial/Config.in"
 endmenu
 
 menu "Filesystem and flash utilities"

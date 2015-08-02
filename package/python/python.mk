@@ -31,8 +31,6 @@ HOST_PYTHON_CONF_OPTS += 	\
 	--disable-gdbm		\
 	--disable-bsddb		\
 	--disable-test-modules	\
-	--disable-bz2		\
-	--disable-ssl		\
 	--disable-ossaudiodev	\
 	--disable-pyo-build
 
@@ -133,17 +131,27 @@ PYTHON_CONF_ENV += \
 	ac_cv_working_tzset=yes
 
 PYTHON_CONF_OPTS += \
-	--without-cxx-main 	\
 	--without-doc-strings	\
 	--with-system-ffi	\
 	--disable-pydoc		\
 	--disable-test-modules	\
-	--disable-lib2to3	\
 	--disable-gdbm		\
 	--disable-tk		\
 	--disable-nis		\
 	--disable-dbm		\
 	--disable-pyo-build
+
+ifneq ($(BR2_FERTILIZE),y)
+PYTHON_CONF_OPTS += \
+	--without-cxx-main 	\
+	--disable-lib2to3
+HOST_PYTHON_CONF_OPTS += \
+	--disable-bz2		\
+	--disable-ssl
+else
+HOST_PYTHON_DEPENDENCIES += host-openssl
+endif
+
 
 # This is needed to make sure the Python build process doesn't try to
 # regenerate those files with the pgen program. Otherwise, it builds

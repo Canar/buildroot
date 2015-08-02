@@ -1,0 +1,7 @@
+config BR2_PACKAGE_GNUCC
+	bool "gcc"
+	select BR2_PACKAGE_MPC
+	select BR2_PACKAGE_MPFR
+	select BR2_PACKAGE_GMP
+	help
+	  GNU compiler collection.

@@ -352,29 +352,6 @@ config BR2_PACKAGE_RPM_XZ_PAYLOADS
 	  The xz payloads option rely entirely on the dependant package xz.
 	  So, you need to select it to enable this feature.
 
-config BR2_PACKAGE_M4
-	bool "m4 target package removed"
-	select BR2_LEGACY
-	help
-	  The m4 target package has been removed, it's been
-	  deprecated for some time now.
-
-config BR2_PACKAGE_FLEX_BINARY
-	bool "flex binary in target option removed"
-	select BR2_LEGACY
-	help
-	  The flex binary in the target option has been removed.
-	  It's been deprecated for some time now and is essentially a
-	  development tool which isn't very useful in the target.
-
-config BR2_PACKAGE_BISON
-	bool "bison target package removed"
-	select BR2_LEGACY
-	help
-	  The bison target package has been removed, it's been
-	  deprecated for some time now and is essentially a development
-	  tool which isn't very useful in the target.
-
 config BR2_PACKAGE_GOB2
 	bool "gob2 target package removed"
 	select BR2_LEGACY
@@ -1041,14 +1018,6 @@ config BR2_GDB_VERSION_7_3
 	  buildroot releases and is now removed. As an alternative, gdb
 	  7.5.x has been automatically selected in your configuration.
 
-config BR2_PACKAGE_CCACHE
-	bool "ccache target package has been removed"
-	select BR2_LEGACY
-	help
-	  The 'ccache' target package has been removed since it has been
-	  deprecated for more than four buildroot releases.
-	  Note: using ccache for speeding up builds is still supported.
-
 config BR2_HAVE_DOCUMENTATION
 	bool "support for documentation on target has been removed"
 	select BR2_LEGACY
@@ -1056,36 +1025,12 @@ config BR2_HAVE_DOCUMENTATION
 	  Support for documentation on target has been removed since it has
 	  been deprecated for more than four buildroot releases.
 
-config BR2_PACKAGE_AUTOMAKE
-	bool "automake target package has been removed"
-	select BR2_LEGACY
-	help
-	  The 'automake' target package has been removed since it has been
-	  deprecated for more than four buildroot releases.
-	  Note: the host automake still exists.
-
-config BR2_PACKAGE_AUTOCONF
-	bool "autoconf target package has been removed"
-	select BR2_LEGACY
-	help
-	  The 'autoconf' target package has been removed since it has been
-	  deprecated for more than four buildroot releases.
-	  Note: the host autoconf still exists.
-
 config BR2_PACKAGE_XSTROKE
 	bool "xstroke has been removed"
 	select BR2_LEGACY
 	help
 	  The 'xstroke' package has been removed since it has been
 	  deprecated for more than four buildroot releases.
-
-config BR2_PACKAGE_LZMA
-	bool "lzma target package has been removed"
-	select BR2_LEGACY
-	help
-	  The 'lzma' target package has been removed since it has been
-	  deprecated for more than four buildroot releases.
-	  Note: generating lzma-compressed rootfs images is still supported.
 
 config BR2_PACKAGE_TTCP
 	bool "ttcp has been removed"
@@ -1309,23 +1254,6 @@ config BR2_VFP_FLOAT
 	  the ARM architecture support, the BR2_VFP_FLOAT option has
 	  been replaced with a choice of options that allows to select
 	  between various VFP versions/capabilities.
-
-config BR2_PACKAGE_GCC_TARGET
-	bool "gcc on the target filesystem has been removed"
-	select BR2_LEGACY
-	help
-	  The support for gcc in the target filesystem was deprecated
-	  since a while, and has been removed completely from Buildroot.
-	  See Buildroot's documentation for more explanations.
-
-config BR2_HAVE_DEVFILES
-	bool "development files in target filesystem has been removed"
-	select BR2_LEGACY
-	help
-	  The installation of the development files in the target
-	  filesystem was deprecated since a while, and has been removed
-	  completely from Buildroot.
-	  See Buildroot's documentation for more explanations.
 
 ###############################################################################
 comment "Legacy options removed in 2013.05"

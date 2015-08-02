@@ -1,0 +1,5 @@
+config BR2_PACKAGE_AUTOMAKE
+	bool "automake"
+	select BR2_PACKAGE_AUTOCONF
+	help
+      automake

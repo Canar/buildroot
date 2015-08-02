@@ -1,0 +1,11 @@
+--- a/Makefile	2011-08-21 05:17:01.000000000 -0700
++++ b/Makefile	2015-08-01 10:50:14.246147166 -0700
+@@ -1,7 +1,7 @@
+ VERSION = 015
+ 
+ # The toolchain definitions
+-CC		= cc
++CC		= gcc
+ SPARSE		= sparse
+ 
+ V		= @		# Verbose build:  make V=1

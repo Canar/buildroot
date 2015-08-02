@@ -7,7 +7,6 @@ config BR2_PACKAGE_BINUTILS
 	  Install binutils on the target
 
 if BR2_PACKAGE_BINUTILS
-
 config BR2_PACKAGE_BINUTILS_TARGET
 	bool "binutils binaries"
 	help
@@ -18,7 +17,6 @@ config BR2_PACKAGE_BINUTILS_TARGET
 	  and others...
 
 	  http://www.gnu.org/software/binutils/
-
 endif
 
 comment "binutils needs a toolchain w/ wchar"
